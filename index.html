@@ -22,16 +22,16 @@
 <body class="font-poppins">
   <main class="min-h-screen bg-[#010313] bg-[url(images/background.png)] bg-no-repeat bg-center">
     <!-- home screen -->
-    <section class="min-h-screen justify-center Home text-white flex flex-col items-center hidden">
+    <section id="home-screen" class="min-h-screen justify-center text-white flex flex-col items-center ">
     <div class="flex flex-col items-center justify-center gap-10">
         <h1 class="text-6xl text-white uppercase">Alpha Clash Pro</h1>
         <p>Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
-        <button class="btn bg-white text-black">play Now</button>
+        <button onclick="play()" class="btn bg-white text-black">play Now</button>
     </div>
     </section>
     <!-- play-ground -->
-    <section class="play-ground">
-       <div class="flex justify-center flex-col items-center">
+    <section id="play-ground" class=" hidden">
+       <div class="flex justify-center flex-col items-center gap-[70px]">
         <!-- screen -->
         <div class="artboard artboard-horizontal phone-6 text-white border-[20px] rounded-2xl border-[#010313cc] bg-[#ffffffB3]">
            <div class="flex justify-center">
@@ -79,13 +79,13 @@
         </div>
         <!-- keyboard end -->
         <!-- life score -->
-     <div class="flex flex-row">
-        <button class="btn bg-[#894189] text-white py-2 rounded-full">
+     <div class="flex flex-row justify-between w-3/4">
+        <button class="btn bg-[#894189] text-white py-2 w-[160px] rounded-full">
             life
             <img src="images/heart.svg" alt="">
             <span>1</span>
         </button>
-        <button class="btn bg-[#360490] text-white py-2 rounded-full">
+        <button class="btn bg-[#360490] text-white py-2 w-[160px] rounded-full">
             Score
             <img src="images/dollar.svg" alt="">
             <span>1</span>
@@ -94,11 +94,19 @@
        </div>
     </section>
     <!-- score -->
-    <section class="score">
-        
+    <section class="score flex justify-center items-center min-h-screen hidden">
+        <div class="text-white text-center space-y-8 bg-[#ffffff33] p-5 rounded-lg">
+            <h1 class="text-8xl text-white">
+                <span class="font-extrabold">Score:</span>
+                <span class="font-medium">14</span>
+            </h1>
+            <button class="btn">Play Again</button>
+            <p>Practice will make you Pro</p>
+        </div>
     </section>
 
   </main>
+  <script src="script/Alpha-Clash.js"></script>
 </body>
 
 </html>
