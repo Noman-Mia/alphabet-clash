@@ -80,15 +80,17 @@
         <!-- keyboard end -->
         <!-- life score -->
      <div class="flex flex-row justify-between w-3/4">
+      <!--display life  -->
         <button class="btn bg-[#894189] text-white py-2 w-[160px] rounded-full">
             life
             <img src="images/heart.svg" alt="">
             <span>1</span>
         </button>
+        <!-- display score -->
         <button class="btn bg-[#360490] text-white py-2 w-[160px] rounded-full">
             Score
             <img src="images/dollar.svg" alt="">
-            <span>1</span>
+            <span id="current-score">0</span>
          </button>
      </div>
        </div>
@@ -97,7 +99,7 @@
     <section class="score flex justify-center items-center min-h-screen hidden">
         <div class="text-white text-center space-y-8 bg-[#ffffff33] p-5 rounded-lg">
             <h1 class="text-8xl text-white">
-                <span class="font-extrabold">point:</span>
+                <span class="font-extrabold">score:</span>
                 <span class="font-medium">14</span>
             </h1>
             <button class="btn">Play Again</button>
