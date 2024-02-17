@@ -19,16 +19,22 @@ function handleKeyboardKeyUpEvent(event){
     //check match or not
     if(playerPressed===expectedAlphabet){
         console.log('you got a point!');
+
+        const currentScore=getTextElementValueById('current-score');
+        const updatedScore=currentScore+1;
+        setTextElementValueById('current-score',updatedScore);
+
+
         //update score:
         //1.get the current score
-        const currentScoreElemnet=document.getElementById("current-score");
-        const currentScoreText=currentScoreElemnet.innerText;
-        const currentScore=parseInt(currentScoreText);
-        console.log(currentScore);
-        //2.increse the score by 1
-        const newScore=currentScore+1
-        //3.show the updated score
-        currentScoreElemnet.innerText =newScore;
+        // const currentScoreElemnet=document.getElementById("current-score");
+        // const currentScoreText=currentScoreElemnet.innerText;
+        // const currentScore=parseInt(currentScoreText);
+        // console.log(currentScore);
+        // //2.increse the score by 1
+        // const newScore=currentScore+1
+        // //3.show the updated score
+        // currentScoreElemnet.innerText =newScore;
 
         //start a new round
         console.log('you have pressed correctly',expectedAlphabet);
@@ -37,6 +43,23 @@ function handleKeyboardKeyUpEvent(event){
 
     }else{
         console.log("dhurr baiya ba apu right key press kor");
+
+        const currentLife=getTextElementValueById('current-life');
+        const updatedLife=currentLife-1;
+        setTextElementValueById('current-life',updatedLife);
+
+        if(updatedLife === 0){
+           gamneOver();
+        }
+        //get the current life number
+        // const currentLifeElement=document.getElementById('current-life');
+        // const currentLifeText=currentLifeElement.innerText;
+        // const currentLife = parseInt(currentLifeText);
+        // //reduce the life count
+        // const newLife=currentLife-1;
+        // //display the updated life count
+        // currentLifeElement.innerText=newLife;
+
     }
 }
 
@@ -53,7 +76,17 @@ setBackgroundColorById(alphabet);
 }
 
 function play(){
+    //hide everything show only the playground
     hideElementById('home-screen');
+    hideElementById('final-score');
     showElementById('play-ground');
+    //reser score and life 
+    setTextElementValueById('current-life',5);
+    setTextElementValueById('current-score',0);
     continueGame();
+}
+
+function gamneOver(){
+hideElementById('play-ground');
+showElementById('final-score');
 }
