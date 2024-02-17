@@ -8,8 +8,12 @@
 //     playGroundSection.classList.remove('hidden');
 // }
 function handleKeyboardKeyUpEvent(event){
-    const playerPressed=event.key
+    const playerPressed=event.key;
     console.log('player pressed',playerPressed);
+    //stop the game if pressed 'esc'
+   if(playerPressed==="Enter"){
+    gameOver();
+   };
 
     //get the expected to press 
     const currentAlphabetElement=document.getElementById('current-alphabet');
@@ -49,7 +53,7 @@ function handleKeyboardKeyUpEvent(event){
         setTextElementValueById('current-life',updatedLife);
 
         if(updatedLife === 0){
-           gamneOver();
+           gameOver();
         }
         //get the current life number
         // const currentLifeElement=document.getElementById('current-life');
@@ -86,7 +90,16 @@ function play(){
     continueGame();
 }
 
-function gamneOver(){
+function gameOver(){
 hideElementById('play-ground');
 showElementById('final-score');
+//update the final score
+//get the final score
+const lastScore = getTextElementValueById('current-score');
+console.log(lastScore);
+setTextElementValueById('last-score',lastScore);
+
+//clear the last selected alphabet highlight
+const currentAlphabet=getElementTextById('current-alphabet');
+removeBackgroundColorById(currentAlphabet); 
 }
